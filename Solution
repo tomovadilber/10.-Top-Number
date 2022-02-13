@@ -1,0 +1,66 @@
+using System;
+using System.Linq;
+using System.Numerics;
+
+namespace Array
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            
+
+
+
+            int num = int.Parse(Console.ReadLine());
+
+            bool isTop = true;
+
+            for (int j = 16; j <= num; j++)
+            {
+                int currentSum = 0;
+                string currentNum = j.ToString();
+
+                foreach (char ch in currentNum)
+                {
+                    currentSum += (int)(ch - 48);
+                }
+
+                if (currentSum%8 == 0)
+                {
+
+                    foreach (var item in currentNum)
+                    {
+                        int currentNumber = 0;
+                        currentNumber = (int)(item - 48);
+                        if (currentNumber % 2 == 0)
+                        {
+                            isTop = false;
+                        }
+                        else
+                        {
+                            isTop = true;
+                            break;
+                        }
+                    }
+                    
+                }
+                else
+                {
+                    isTop = false;
+                }
+                if (isTop == true)
+                {
+                    Console.WriteLine(j);
+                }
+
+            }
+
+
+
+
+
+        }
+    }
+}
